@@ -57,3 +57,23 @@ Commit your code and a transcript showing the loop's steps and the two-turn memo
 - Short-term memory is a running `messages` list, and the two-turn demo proves it works
 - A step limit is present and stops the loop cleanly
 - No API key is committed
+
+======================================================================
+USER: What did order A1001 cost?
+======================================================================
+--- Step 1/5 ---
+  TOOL CALL -> lookup_order({'order_id': 'A1001'})
+  TOOL RESULT <- {'item': 'laptop', 'price': 1200, 'purchased': '2026-05-20', 'warranty_months': 12}
+--- Step 2/5 ---
+MODEL (final answer): Order A1001 cost $1,200.
+======================================================================
+USER: And what about three of them?
+======================================================================
+--- Step 1/5 ---
+  TOOL CALL -> calculate({'expression': '1200 * 3'})
+  TOOL RESULT <- {'result': 3600}
+--- Step 2/5 ---
+MODEL (final answer): Three of them would cost $3,600.
+======================================================================
+Final memory size: 8 entries in `messages`
+======================================================================
